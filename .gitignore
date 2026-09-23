@@ -1,0 +1,23 @@
+# Python virtual environment
+.venv/
+
+# Python cache files
+__pycache__/
+*.pyc
+
+# Environment variables / secrets
+.env
+
+# Local database files
+*.duckdb
+*.duckdb.wal
+
+# Raw downloaded data
+data/raw/
+
+# Temporary files
+*.tmp
+*.log
+
+# Streamlit cache
+.streamlit/
