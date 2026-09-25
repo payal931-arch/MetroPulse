@@ -1,0 +1,424 @@
+{
+  "project": "MetroPulse",
+  "analysis_period": {
+    "start": "2024-04-01",
+    "end": "2024-06-30"
+  },
+  "metadata_generated_at_utc": "2026-09-25T05:30:02.810248+00:00",
+  "sources": [
+    {
+      "source_name": "NYC TLC Yellow Taxi",
+      "source_url": "https://www.nyc.gov/site/tlc/about/tlc-trip-record-data.page",
+      "source_period": "April-June 2024",
+      "extraction_timestamp_utc": "2026-09-25T05:30:02.810248+00:00",
+      "row_count": 3514289,
+      "schema": [
+        {
+          "column": "VendorID",
+          "type": "INTEGER"
+        },
+        {
+          "column": "tpep_pickup_datetime",
+          "type": "TIMESTAMP"
+        },
+        {
+          "column": "tpep_dropoff_datetime",
+          "type": "TIMESTAMP"
+        },
+        {
+          "column": "passenger_count",
+          "type": "BIGINT"
+        },
+        {
+          "column": "trip_distance",
+          "type": "DOUBLE"
+        },
+        {
+          "column": "RatecodeID",
+          "type": "BIGINT"
+        },
+        {
+          "column": "store_and_fwd_flag",
+          "type": "VARCHAR"
+        },
+        {
+          "column": "PULocationID",
+          "type": "INTEGER"
+        },
+        {
+          "column": "DOLocationID",
+          "type": "INTEGER"
+        },
+        {
+          "column": "payment_type",
+          "type": "BIGINT"
+        },
+        {
+          "column": "fare_amount",
+          "type": "DOUBLE"
+        },
+        {
+          "column": "extra",
+          "type": "DOUBLE"
+        },
+        {
+          "column": "mta_tax",
+          "type": "DOUBLE"
+        },
+        {
+          "column": "tip_amount",
+          "type": "DOUBLE"
+        },
+        {
+          "column": "tolls_amount",
+          "type": "DOUBLE"
+        },
+        {
+          "column": "improvement_surcharge",
+          "type": "DOUBLE"
+        },
+        {
+          "column": "total_amount",
+          "type": "DOUBLE"
+        },
+        {
+          "column": "congestion_surcharge",
+          "type": "DOUBLE"
+        },
+        {
+          "column": "Airport_fee",
+          "type": "DOUBLE"
+        }
+      ],
+      "schema_fingerprint": "b046a71072f4bb9b1a99ee1b94f92a1e528d04adaedfbc704f074a3851b45f6f",
+      "file": "data/raw/taxi/yellow_tripdata_2024-04.parquet",
+      "size_bytes": 59133625,
+      "sha256": "ce37f736c7cf9e92164c850ef2b502a8f7bb590fc1804b6edbcb80293da01b89"
+    },
+    {
+      "source_name": "NYC TLC Yellow Taxi",
+      "source_url": "https://www.nyc.gov/site/tlc/about/tlc-trip-record-data.page",
+      "source_period": "April-June 2024",
+      "extraction_timestamp_utc": "2026-09-25T05:30:02.810248+00:00",
+      "row_count": 3723833,
+      "schema": [
+        {
+          "column": "VendorID",
+          "type": "INTEGER"
+        },
+        {
+          "column": "tpep_pickup_datetime",
+          "type": "TIMESTAMP"
+        },
+        {
+          "column": "tpep_dropoff_datetime",
+          "type": "TIMESTAMP"
+        },
+        {
+          "column": "passenger_count",
+          "type": "BIGINT"
+        },
+        {
+          "column": "trip_distance",
+          "type": "DOUBLE"
+        },
+        {
+          "column": "RatecodeID",
+          "type": "BIGINT"
+        },
+        {
+          "column": "store_and_fwd_flag",
+          "type": "VARCHAR"
+        },
+        {
+          "column": "PULocationID",
+          "type": "INTEGER"
+        },
+        {
+          "column": "DOLocationID",
+          "type": "INTEGER"
+        },
+        {
+          "column": "payment_type",
+          "type": "BIGINT"
+        },
+        {
+          "column": "fare_amount",
+          "type": "DOUBLE"
+        },
+        {
+          "column": "extra",
+          "type": "DOUBLE"
+        },
+        {
+          "column": "mta_tax",
+          "type": "DOUBLE"
+        },
+        {
+          "column": "tip_amount",
+          "type": "DOUBLE"
+        },
+        {
+          "column": "tolls_amount",
+          "type": "DOUBLE"
+        },
+        {
+          "column": "improvement_surcharge",
+          "type": "DOUBLE"
+        },
+        {
+          "column": "total_amount",
+          "type": "DOUBLE"
+        },
+        {
+          "column": "congestion_surcharge",
+          "type": "DOUBLE"
+        },
+        {
+          "column": "Airport_fee",
+          "type": "DOUBLE"
+        }
+      ],
+      "schema_fingerprint": "b046a71072f4bb9b1a99ee1b94f92a1e528d04adaedfbc704f074a3851b45f6f",
+      "file": "data/raw/taxi/yellow_tripdata_2024-05.parquet",
+      "size_bytes": 62553128,
+      "sha256": "1974230be2b5a3ea92e47b5eb77f32dbf1de896d81ad8df4ab6faba52749ad23"
+    },
+    {
+      "source_name": "NYC TLC Yellow Taxi",
+      "source_url": "https://www.nyc.gov/site/tlc/about/tlc-trip-record-data.page",
+      "source_period": "April-June 2024",
+      "extraction_timestamp_utc": "2026-09-25T05:30:02.810248+00:00",
+      "row_count": 3539193,
+      "schema": [
+        {
+          "column": "VendorID",
+          "type": "INTEGER"
+        },
+        {
+          "column": "tpep_pickup_datetime",
+          "type": "TIMESTAMP"
+        },
+        {
+          "column": "tpep_dropoff_datetime",
+          "type": "TIMESTAMP"
+        },
+        {
+          "column": "passenger_count",
+          "type": "BIGINT"
+        },
+        {
+          "column": "trip_distance",
+          "type": "DOUBLE"
+        },
+        {
+          "column": "RatecodeID",
+          "type": "BIGINT"
+        },
+        {
+          "column": "store_and_fwd_flag",
+          "type": "VARCHAR"
+        },
+        {
+          "column": "PULocationID",
+          "type": "INTEGER"
+        },
+        {
+          "column": "DOLocationID",
+          "type": "INTEGER"
+        },
+        {
+          "column": "payment_type",
+          "type": "BIGINT"
+        },
+        {
+          "column": "fare_amount",
+          "type": "DOUBLE"
+        },
+        {
+          "column": "extra",
+          "type": "DOUBLE"
+        },
+        {
+          "column": "mta_tax",
+          "type": "DOUBLE"
+        },
+        {
+          "column": "tip_amount",
+          "type": "DOUBLE"
+        },
+        {
+          "column": "tolls_amount",
+          "type": "DOUBLE"
+        },
+        {
+          "column": "improvement_surcharge",
+          "type": "DOUBLE"
+        },
+        {
+          "column": "total_amount",
+          "type": "DOUBLE"
+        },
+        {
+          "column": "congestion_surcharge",
+          "type": "DOUBLE"
+        },
+        {
+          "column": "Airport_fee",
+          "type": "DOUBLE"
+        }
+      ],
+      "schema_fingerprint": "b046a71072f4bb9b1a99ee1b94f92a1e528d04adaedfbc704f074a3851b45f6f",
+      "file": "data/raw/taxi/yellow_tripdata_2024-06.parquet",
+      "size_bytes": 59859922,
+      "sha256": "677cf14c8347f745b583f012fbdba072334c6c4efa17bfd6a64369f2ba30329c"
+    },
+    {
+      "source_name": "Open-Meteo Historical Weather",
+      "source_url": "https://open-meteo.com/",
+      "source_period": "2024-04-01 to 2024-06-30",
+      "extraction_timestamp_utc": "2026-09-25T05:30:02.810248+00:00",
+      "row_count": 1,
+      "schema": [
+        {
+          "column": "latitude",
+          "type": "DOUBLE"
+        },
+        {
+          "column": "longitude",
+          "type": "DOUBLE"
+        },
+        {
+          "column": "generationtime_ms",
+          "type": "DOUBLE"
+        },
+        {
+          "column": "utc_offset_seconds",
+          "type": "BIGINT"
+        },
+        {
+          "column": "timezone",
+          "type": "VARCHAR"
+        },
+        {
+          "column": "timezone_abbreviation",
+          "type": "VARCHAR"
+        },
+        {
+          "column": "elevation",
+          "type": "DOUBLE"
+        },
+        {
+          "column": "hourly_units",
+          "type": "STRUCT(\"time\" VARCHAR, temperature_2m VARCHAR, precipitation VARCHAR, relative_humidity_2m VARCHAR, wind_speed_10m VARCHAR)"
+        },
+        {
+          "column": "hourly",
+          "type": "STRUCT(\"time\" VARCHAR[], temperature_2m DOUBLE[], precipitation DOUBLE[], relative_humidity_2m BIGINT[], wind_speed_10m DOUBLE[])"
+        }
+      ],
+      "schema_fingerprint": "4dd07f4684f568ea26aa0e041e2676feb5141b423480a3f4bcafaf12592d4ac8",
+      "file": "data/raw/weather/nyc_weather_2024-04_to_2024-06.json",
+      "size_bytes": 165303,
+      "sha256": "bfad624e7046985348e27655d26ff532a9b32786efe241460ef80a4e5442fa8a"
+    },
+    {
+      "source_name": "MTA Subway Hourly Ridership",
+      "source_url": "https://data.ny.gov/Transportation/MTA-Subway-Hourly-Ridership-2020-2024/py8k-q2t6/about_data",
+      "source_period": "2024-04-01 to 2024-06-30",
+      "extraction_timestamp_utc": "2026-09-25T05:30:02.810248+00:00",
+      "row_count": 6558471,
+      "schema": [
+        {
+          "column": "transit_timestamp",
+          "type": "VARCHAR"
+        },
+        {
+          "column": "transit_mode",
+          "type": "VARCHAR"
+        },
+        {
+          "column": "station_complex_id",
+          "type": "VARCHAR"
+        },
+        {
+          "column": "station_complex",
+          "type": "VARCHAR"
+        },
+        {
+          "column": "borough",
+          "type": "VARCHAR"
+        },
+        {
+          "column": "payment_method",
+          "type": "VARCHAR"
+        },
+        {
+          "column": "fare_class_category",
+          "type": "VARCHAR"
+        },
+        {
+          "column": "ridership",
+          "type": "VARCHAR"
+        },
+        {
+          "column": "transfers",
+          "type": "VARCHAR"
+        },
+        {
+          "column": "latitude",
+          "type": "VARCHAR"
+        },
+        {
+          "column": "longitude",
+          "type": "VARCHAR"
+        },
+        {
+          "column": "georeference",
+          "type": "STRUCT(\"type\" VARCHAR, coordinates DOUBLE[])"
+        }
+      ],
+      "schema_fingerprint": "710e2610dde9ddb96cafe336502cf0c9783e60175ce69b7f225f3386f274a406",
+      "file": "data/raw/mta/mta_subway_2024-04_to_2024-06.json",
+      "size_bytes": 3467871018,
+      "sha256": "e579246bcba2d3db28ebe84b980c9ed3ad513ca6330abd1a701004872ebcbbac"
+    },
+    {
+      "source_name": "NYC Taxi Zones",
+      "source_url": "https://data.cityofnewyork.us/Transportation/NYC-Taxi-Zones/8meu-9t5y/about_data",
+      "source_period": "NYC Taxi Zone reference data",
+      "extraction_timestamp_utc": "2026-09-25T05:30:02.810248+00:00",
+      "row_count": 263,
+      "schema": [
+        {
+          "column": "Shape Geometry",
+          "type": "VARCHAR"
+        },
+        {
+          "column": "Shape Length",
+          "type": "DOUBLE"
+        },
+        {
+          "column": "Shape Area",
+          "type": "DOUBLE"
+        },
+        {
+          "column": "Zone",
+          "type": "VARCHAR"
+        },
+        {
+          "column": "Location ID",
+          "type": "BIGINT"
+        },
+        {
+          "column": "Borough",
+          "type": "VARCHAR"
+        }
+      ],
+      "schema_fingerprint": "5e23f0f4da904c640c53c56a302d6eb3b5457def4ef2c9481f110d95cb3592f8",
+      "file": "data/raw/zones/taxi_zone_lookup.csv",
+      "size_bytes": 3753425,
+      "sha256": "db5771be36b1e709c20110bbcdc64a40f84f1220d43a7b26c8ae49d8830bb8ed"
+    }
+  ]
+}

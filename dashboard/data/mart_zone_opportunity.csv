@@ -1,0 +1,262 @@
+pickup_location_id,pickup_zone,pickup_borough,total_trips,total_amount,avg_amount_per_trip,avg_trip_distance,avg_trip_duration_minutes,trip_share_pct,demand_indicator
+239,Upper West Side South,Manhattan,297533,6646179.76,22.34,3.36,13.38,2.81,Higher Demand
+113,Greenwich Village North,Manhattan,148203,3425787.25,23.12,3.06,15.27,1.4,Higher Demand
+229,Sutton Place/Turtle Bay North,Manhattan,186918,4194068.11,22.44,5.19,14.04,1.76,Higher Demand
+90,Flatiron,Manhattan,167586,3922236.96,23.4,4.72,14.86,1.58,Higher Demand
+75,East Harlem South,Manhattan,68463,1528601.22,22.33,7.76,14.93,0.65,Higher Demand
+137,Kips Bay,Manhattan,111491,2529354.31,22.69,6.62,14.33,1.05,Higher Demand
+161,Midtown Center,Manhattan,493330,12513339.26,25.37,2.53,16.2,4.66,Higher Demand
+100,Garment District,Manhattan,157570,4013617.97,25.47,4.27,16.37,1.49,Higher Demand
+87,Financial District North,Manhattan,63541,2053969.34,32.33,5.91,20.15,0.6,Higher Demand
+70,East Elmhurst,Queens,42284,2784841.87,65.86,11.57,31.77,0.4,Higher Demand
+166,Morningside Heights,Manhattan,55866,1352718.88,24.21,9.42,16.1,0.53,Higher Demand
+48,Clinton East,Manhattan,264902,6482313.93,24.47,3.27,14.94,2.5,Higher Demand
+238,Upper West Side North,Manhattan,210890,4646830.18,22.03,3.53,13.17,1.99,Higher Demand
+24,Bloomingdale,Manhattan,29417,679295.57,23.09,16.83,14.68,0.28,Underserved
+74,East Harlem North,Manhattan,28871,662533.99,22.95,20.72,15.89,0.27,Underserved
+116,Hamilton Heights,Manhattan,11147,289803.09,26.0,35.89,18.6,0.11,Underserved
+88,Financial District South,Manhattan,33765,1135147.18,33.62,8.15,21.58,0.32,Underserved
+106,Gowanus,Brooklyn,929,30129.55,32.43,62.88,25.73,0.01,Underserved
+66,DUMBO/Vinegar Hill,Brooklyn,5695,183625.0,32.24,29.92,22.51,0.05,Underserved
+188,Prospect-Lefferts Gardens,Brooklyn,4258,133072.21,31.25,33.67,36.71,0.04,Underserved
+129,Jackson Heights,Queens,4197,151605.36,36.12,23.37,23.47,0.04,Underserved
+244,Washington Heights South,Manhattan,9814,292749.17,29.83,13.49,21.59,0.09,Underserved
+10,Baisley Park,Queens,3904,275568.24,70.59,26.75,40.84,0.04,Underserved
+177,Ocean Hill,Brooklyn,2196,70279.35,32.0,55.6,35.92,0.02,Underserved
+49,Clinton Hill,Brooklyn,3424,107632.49,31.43,5.03,30.68,0.03,Underserved
+52,Cobble Hill,Brooklyn,2609,83955.58,32.18,36.59,23.22,0.02,Underserved
+194,Randalls Island,Manhattan,475,30005.57,63.17,6.75,23.57,0.0,Underserved
+69,East Concourse/Concourse Village,Bronx,1696,56434.44,33.28,6.3,35.12,0.02,Underserved
+157,Maspeth,Queens,1572,72329.42,46.01,5.87,23.23,0.01,Underserved
+219,Springfield Gardens South,Queens,1544,104529.74,67.7,11.6,39.56,0.01,Underserved
+257,Windsor Terrace,Brooklyn,512,18268.85,35.68,5.85,30.59,0.0,Underserved
+61,Crown Heights North,Brooklyn,7057,219079.79,31.04,49.75,33.54,0.07,Underserved
+108,Gravesend,Brooklyn,606,24674.14,40.72,8.87,48.71,0.01,Underserved
+136,Kingsbridge Heights,Bronx,549,19435.51,35.4,7.02,37.34,0.01,Underserved
+80,East Williamsburg,Brooklyn,5129,175012.52,34.12,21.27,21.91,0.05,Underserved
+191,Queens Village,Queens,1287,55618.85,43.22,167.38,43.06,0.01,Underserved
+253,Willets Point,Queens,56,2742.15,48.97,8.69,25.77,0.0,Underserved
+14,Bay Ridge,Brooklyn,1591,61200.1,38.47,8.05,44.38,0.02,Underserved
+195,Red Hook,Brooklyn,2010,110531.84,54.99,8.66,31.84,0.02,Underserved
+222,Starrett City,Brooklyn,1404,50776.79,36.17,7.73,44.93,0.01,Underserved
+21,Bensonhurst East,Brooklyn,559,19200.82,34.35,6.87,42.21,0.01,Underserved
+241,Van Cortlandt Village,Bronx,802,30479.77,38.0,8.04,41.58,0.01,Underserved
+174,Norwood,Bronx,577,23739.02,41.14,9.22,43.37,0.01,Underserved
+95,Forest Hills,Queens,2686,96564.09,35.95,57.29,29.03,0.03,Underserved
+147,Longwood,Bronx,671,21959.78,32.73,79.75,32.8,0.01,Underserved
+124,Howard Beach,Queens,747,33108.35,44.32,7.65,29.14,0.01,Underserved
+17,Bedford,Brooklyn,3533,108166.05,30.62,37.13,29.94,0.03,Underserved
+252,Whitestone,Queens,326,13167.33,40.39,8.29,29.03,0.0,Underserved
+154,Marine Park/Floyd Bennett Field,Brooklyn,167,7607.49,45.55,7.65,21.22,0.0,Underserved
+131,Jamaica Estates,Queens,704,25222.53,35.83,148.74,34.09,0.01,Underserved
+171,Murray Hill-Queens,Queens,295,10693.98,36.25,6.93,48.96,0.0,Underserved
+86,Far Rockaway,Queens,1012,53171.36,52.54,14.62,66.7,0.01,Underserved
+169,Mount Hope,Bronx,970,32890.43,33.91,6.77,33.56,0.01,Underserved
+182,Parkchester,Bronx,1111,43427.35,39.09,8.44,44.38,0.01,Underserved
+258,Woodhaven,Queens,816,28110.98,34.45,6.61,33.57,0.01,Underserved
+71,East Flatbush/Farragut,Brooklyn,2319,68187.25,29.4,25.29,34.69,0.02,Underserved
+178,Ocean Parkway South,Brooklyn,301,9941.0,33.03,6.12,37.82,0.0,Underserved
+123,Homecrest,Brooklyn,781,25342.79,32.45,79.01,39.69,0.01,Underserved
+250,Westchester Village/Unionport,Bronx,665,22436.5,33.74,140.29,35.15,0.01,Underserved
+98,Fresh Meadows,Queens,298,11106.9,37.27,8.27,36.55,0.0,Underserved
+160,Middle Village,Queens,664,26711.46,40.23,6.28,27.22,0.01,Underserved
+201,Rockaway Park,Queens,319,15104.82,47.35,10.76,49.44,0.0,Underserved
+26,Borough Park,Brooklyn,1061,33772.44,31.83,87.57,39.27,0.01,Underserved
+200,Riverdale/North Riverdale/Fieldston,Bronx,479,20061.85,41.88,9.45,37.94,0.0,Underserved
+53,College Point,Queens,322,12871.35,39.97,7.74,29.75,0.0,Underserved
+183,Pelham Bay,Bronx,250,9549.15,38.2,8.08,37.28,0.0,Underserved
+153,Marble Hill,Manhattan,193,6112.69,31.67,6.17,29.92,0.0,Underserved
+31,Bronx Park,Bronx,108,4878.91,45.18,7.61,30.92,0.0,Underserved
+184,Pelham Bay Park,Bronx,56,2809.98,50.18,9.28,32.05,0.0,Underserved
+128,Inwood Hill Park,Manhattan,129,5018.02,38.9,6.94,28.62,0.0,Underserved
+240,Van Cortlandt Park,Bronx,72,2853.96,39.64,7.29,29.08,0.0,Underserved
+58,Country Club,Bronx,36,1697.88,47.16,9.93,34.14,0.0,Underserved
+265,,,5728,594865.16,103.85,8.83,10.56,0.05,Underserved
+172,New Dorp/Midland Beach,Staten Island,19,1033.79,54.41,7.76,28.37,0.0,Underserved
+84,Eltingville/Annadale/Prince's Bay,Staten Island,6,469.46,78.24,9.44,20.33,0.0,Underserved
+206,Saint George/New Brighton,Staten Island,11,889.86,80.9,4.21,11.36,0.0,Underserved
+199,Rikers Island,Bronx,2,113.95,56.98,9.83,43.0,0.0,Underserved
+263,Yorkville West,Manhattan,196722,4583303.49,23.3,3.55,12.29,1.86,Higher Demand
+236,Upper East Side North,Manhattan,457882,9769254.65,21.34,3.4,12.88,4.32,Higher Demand
+237,Upper East Side South,Manhattan,501183,10432192.06,20.82,2.62,12.69,4.73,Higher Demand
+142,Lincoln Square East,Manhattan,344136,7719901.41,22.43,3.02,13.72,3.25,Higher Demand
+138,LaGuardia Airport,Queens,349508,24022234.97,68.73,9.67,32.54,3.3,Higher Demand
+170,Murray Hill,Manhattan,304569,7506286.71,24.65,2.61,15.5,2.87,Higher Demand
+246,West Chelsea/Hudson Yards,Manhattan,187266,4706387.67,25.13,2.4,16.98,1.77,Higher Demand
+186,Penn Station/Madison Sq West,Manhattan,332180,8566544.99,25.79,2.54,17.83,3.14,Higher Demand
+249,West Village,Manhattan,245060,5703169.0,23.27,2.79,15.14,2.31,Higher Demand
+262,Yorkville East,Manhattan,149090,3384243.2,22.7,6.67,13.11,1.41,Higher Demand
+209,Seaport,Manhattan,22680,702006.75,30.95,5.79,19.61,0.21,Underserved
+211,SoHo,Manhattan,86259,2144030.59,24.86,3.58,16.75,0.81,Higher Demand
+50,Clinton West,Manhattan,68008,1637894.25,24.08,6.54,14.9,0.64,Higher Demand
+141,Lenox Hill West,Manhattan,235480,4990121.65,21.19,2.22,12.73,2.22,Higher Demand
+151,Manhattan Valley,Manhattan,87053,1906658.8,21.9,5.12,13.76,0.82,Higher Demand
+4,Alphabet City,Manhattan,18719,459425.62,24.54,11.41,16.23,0.18,Underserved
+146,Long Island City/Queens Plaza,Queens,5352,145885.5,27.26,3.43,17.59,0.05,Underserved
+7,Astoria,Queens,7627,206067.92,27.02,23.36,19.53,0.07,Underserved
+51,Co-Op City,Bronx,1630,70391.95,43.19,9.9,48.29,0.02,Underserved
+45,Chinatown,Manhattan,16255,475378.27,29.25,9.02,20.28,0.15,Underserved
+41,Central Harlem,Manhattan,32688,744994.38,22.79,22.05,15.99,0.31,Underserved
+65,Downtown Brooklyn/MetroTech,Brooklyn,8583,281295.4,32.77,25.55,23.99,0.08,Underserved
+232,Two Bridges/Seward Park,Manhattan,16843,473697.82,28.12,8.24,18.8,0.16,Underserved
+179,Old Astoria,Queens,2693,76791.14,28.52,27.75,22.01,0.03,Underserved
+145,Long Island City/Hunters Point,Queens,11157,351034.83,31.46,3.21,15.22,0.11,Underserved
+216,South Ozone Park,Queens,3826,224973.17,58.8,5.36,20.7,0.04,Underserved
+16,Bayside,Queens,310,11308.74,36.48,7.73,34.78,0.0,Underserved
+215,South Jamaica,Queens,2190,119970.19,54.78,13.8,37.04,0.02,Underserved
+223,Steinway,Queens,2815,125011.27,44.41,5.75,24.42,0.03,Underserved
+218,Springfield Gardens North,Queens,1271,50432.86,39.68,9.04,44.19,0.01,Underserved
+18,Bedford Park,Bronx,697,25818.51,37.04,7.57,37.89,0.01,Underserved
+33,Brooklyn Heights,Brooklyn,8110,264009.63,32.55,71.6,24.42,0.08,Underserved
+226,Sunnyside,Queens,9332,347727.4,37.26,39.68,21.31,0.09,Underserved
+47,Claremont/Bathgate,Bronx,783,27241.64,34.79,6.92,37.15,0.01,Underserved
+25,Boerum Hill,Brooklyn,6065,184545.44,30.43,56.95,26.18,0.06,Underserved
+35,Brownsville,Brooklyn,2972,90970.98,30.61,5.89,37.99,0.03,Underserved
+93,Flushing Meadows-Corona Park,Queens,1976,137685.41,69.68,8.29,24.35,0.02,Underserved
+37,Bushwick South,Brooklyn,3528,111219.85,31.52,33.02,29.06,0.03,Underserved
+190,Prospect Park,Brooklyn,430,13891.79,32.31,4.35,25.97,0.0,Underserved
+254,Williamsbridge/Olinville,Bronx,1076,42428.52,39.43,8.6,43.89,0.01,Underserved
+62,Crown Heights South,Brooklyn,2357,70413.53,29.87,5.09,33.24,0.02,Underserved
+22,Bensonhurst West,Brooklyn,806,28058.54,34.81,6.92,41.97,0.01,Underserved
+247,West Concourse,Bronx,2043,69729.45,34.13,5.99,28.0,0.02,Underserved
+92,Flushing,Queens,982,38680.5,39.39,7.28,32.15,0.01,Underserved
+122,Hollis,Queens,430,15636.4,36.36,96.77,37.37,0.0,Underserved
+82,Elmhurst,Queens,2334,82792.64,35.47,17.82,24.25,0.02,Underserved
+207,Saint Michaels Cemetery/Woodside,Queens,794,12926.85,16.28,1.37,106.79,0.01,Underserved
+60,Crotona Park East,Bronx,576,20478.52,35.55,7.57,41.36,0.01,Underserved
+11,Bath Beach,Brooklyn,319,12976.5,40.68,8.87,42.88,0.0,Underserved
+94,Fordham South,Bronx,388,13813.91,35.6,6.96,39.35,0.0,Underserved
+117,Hammels/Arverne,Queens,1067,52063.16,48.79,12.09,58.97,0.01,Underserved
+20,Belmont,Bronx,503,18755.12,37.29,7.46,38.48,0.0,Underserved
+81,Eastchester,Bronx,573,22516.08,39.3,8.85,43.94,0.01,Underserved
+213,Soundview/Castle Hill,Bronx,1519,55207.45,36.34,36.6,38.27,0.01,Underserved
+83,Elmhurst/Maspeth,Queens,974,37994.74,39.01,4.68,20.03,0.01,Underserved
+63,Cypress Hills,Brooklyn,1001,34198.12,34.16,6.34,34.88,0.01,Underserved
+248,West Farms/Bronx River,Bronx,727,24913.42,34.27,95.96,33.02,0.01,Underserved
+212,Soundview/Bruckner,Bronx,690,23684.32,34.33,6.58,30.58,0.01,Underserved
+102,Glendale,Queens,543,16773.24,30.89,5.43,26.25,0.01,Underserved
+155,Marine Park/Mill Basin,Brooklyn,1071,37305.85,34.83,6.56,37.41,0.01,Underserved
+55,Coney Island,Brooklyn,1486,67352.87,45.32,10.57,55.37,0.01,Underserved
+77,East New York/Pennsylvania Avenue,Brooklyn,1171,37927.32,32.39,6.45,37.75,0.01,Underserved
+165,Midwood,Brooklyn,1187,35601.15,29.99,76.97,39.0,0.01,Underserved
+67,Dyker Heights,Brooklyn,398,13086.69,32.88,5.97,33.63,0.0,Underserved
+167,Morrisania/Melrose,Bronx,1136,36536.7,32.16,6.14,35.99,0.01,Underserved
+121,Hillcrest/Pomonok,Queens,764,26807.26,35.09,7.24,34.92,0.01,Underserved
+133,Kensington,Brooklyn,810,29033.59,35.84,5.56,32.27,0.01,Underserved
+27,Breezy Point/Fort Tilden/Riis Beach,Queens,43,2071.73,48.18,9.4,35.49,0.0,Underserved
+46,City Island,Bronx,81,4056.18,50.08,11.69,49.31,0.0,Underserved
+8,Astoria Park,Queens,72,4953.25,68.8,7.84,21.82,0.0,Underserved
+118,Heartland Village/Todt Hill,Staten Island,23,1422.28,61.84,11.62,33.35,0.0,Underserved
+187,Port Richmond,Staten Island,7,382.34,54.62,11.74,34.29,0.0,Underserved
+57,,,72,3087.05,42.88,7.9,28.13,0.0,Underserved
+59,Crotona Park,Bronx,37,1237.32,33.44,7.15,35.76,0.0,Underserved
+204,Rossville/Woodrow,Staten Island,4,388.49,97.12,5.52,15.25,0.0,Underserved
+132,JFK Airport,Queens,469160,38637015.75,82.35,15.68,45.27,4.43,Higher Demand
+234,Union Sq,Manhattan,281592,6506751.08,23.11,2.51,14.9,2.66,Higher Demand
+230,Times Sq/Theatre District,Manhattan,349030,10232879.59,29.32,3.67,18.08,3.29,Higher Demand
+144,Little Italy/NoLiTa,Manhattan,106254,2647503.29,24.92,6.3,16.89,1.0,Higher Demand
+79,East Village,Manhattan,245581,5715066.44,23.27,4.74,14.48,2.32,Higher Demand
+68,East Chelsea,Manhattan,283817,7488750.11,26.39,2.89,18.05,2.68,Higher Demand
+148,Lower East Side,Manhattan,115026,2987056.78,25.97,4.23,16.48,1.09,Higher Demand
+140,Lenox Hill East,Manhattan,203860,4750137.63,23.3,4.13,14.53,1.92,Higher Demand
+261,World Trade Center,Manhattan,56234,1879272.88,33.42,5.06,22.15,0.53,Higher Demand
+158,Meatpacking/West Village West,Manhattan,111743,2833346.39,25.36,4.36,16.75,1.05,Higher Demand
+233,UN/Turtle Bay South,Manhattan,126927,3315245.57,26.12,3.98,15.74,1.2,Higher Demand
+42,Central Harlem North,Manhattan,16562,416330.07,25.14,24.89,20.26,0.16,Underserved
+152,Manhattanville,Manhattan,9178,217495.35,23.7,3.37,15.86,0.09,Underserved
+114,Greenwich Village South,Manhattan,148741,3468294.95,23.32,4.71,15.05,1.4,Higher Demand
+126,Hunts Point,Bronx,688,24176.52,35.14,6.39,31.83,0.01,Underserved
+224,Stuy Town/Peter Cooper Village,Manhattan,17064,408214.82,23.92,2.61,15.04,0.16,Underserved
+1,Newark Airport,EWR,1551,158856.14,102.42,0.66,1.58,0.01,Underserved
+119,Highbridge,Bronx,940,35009.95,37.24,73.69,31.75,0.01,Underserved
+130,Jamaica,Queens,3014,129140.92,42.85,7.92,29.46,0.03,Underserved
+12,Battery Park,Manhattan,4444,150071.88,33.77,4.39,23.12,0.04,Underserved
+197,Richmond Hill,Queens,2553,111149.25,43.54,5.4,24.33,0.02,Underserved
+217,South Williamsburg,Brooklyn,731,22104.49,30.24,58.01,26.82,0.01,Underserved
+38,Cambria Heights,Queens,536,26008.52,48.52,11.73,49.27,0.01,Underserved
+135,Kew Gardens Hills,Queens,580,22086.07,38.08,7.1,33.09,0.01,Underserved
+150,Manhattan Beach,Brooklyn,407,15491.29,38.06,7.14,38.34,0.0,Underserved
+97,Fort Greene,Brooklyn,6469,191102.07,29.54,19.34,24.78,0.06,Underserved
+89,Flatbush/Ditmas Park,Brooklyn,3657,117452.02,32.12,12.83,37.84,0.03,Underserved
+255,Williamsburg (North Side),Brooklyn,8806,272929.63,30.99,10.73,21.01,0.08,Underserved
+15,Bay Terrace/Fort Totten,Queens,185,8301.69,44.87,10.22,38.51,0.0,Underserved
+235,University Heights/Morris Heights,Bronx,1111,40754.41,36.68,7.86,38.62,0.01,Underserved
+127,Inwood,Manhattan,1388,48615.0,35.03,6.52,29.51,0.01,Underserved
+72,East Flatbush/Remsen Village,Brooklyn,2797,84820.25,30.33,5.7,35.59,0.03,Underserved
+19,Bellerose,Queens,471,19361.83,41.11,65.12,34.44,0.0,Underserved
+39,Canarsie,Brooklyn,4046,135157.41,33.41,23.65,37.79,0.04,Underserved
+208,Schuylerville/Edgewater Park,Bronx,642,25301.35,39.41,232.87,34.96,0.01,Underserved
+139,Laurelton,Queens,611,28253.6,46.24,11.1,48.63,0.01,Underserved
+159,Melrose South,Bronx,1503,45781.89,30.46,65.67,30.38,0.01,Underserved
+259,Woodlawn/Wakefield,Bronx,627,26267.33,41.89,9.27,41.18,0.01,Underserved
+101,Glen Oaks,Queens,274,12322.24,44.97,365.94,32.93,0.0,Underserved
+44,Charleston/Tottenville,Staten Island,3,428.38,142.79,14.68,23.0,0.0,Underserved
+73,East Flushing,Queens,141,5326.3,37.78,6.86,35.75,0.0,Underserved
+115,Grymes Hill/Clifton,Staten Island,27,1723.64,63.84,10.05,17.74,0.0,Underserved
+221,Stapleton,Staten Island,39,1881.0,48.23,1142.61,43.82,0.0,Underserved
+156,Mariners Harbor,Staten Island,14,1189.42,84.96,13.85,26.21,0.0,Underserved
+264,,,33582,1007173.11,29.99,3.63,17.93,0.32,Underserved
+245,West Brighton,Staten Island,10,636.97,63.7,12.56,34.5,0.0,Underserved
+111,Green-Wood Cemetery,Brooklyn,18,829.6,46.09,7.19,38.78,0.0,Underserved
+105,,,2,60.95,30.48,4.13,17.5,0.0,Underserved
+164,Midtown South,Manhattan,238560,6053350.5,25.37,2.47,15.75,2.25,Higher Demand
+163,Midtown North,Manhattan,302798,7652971.37,25.27,3.15,15.79,2.86,Higher Demand
+231,TriBeCa/Civic Center,Manhattan,150230,4117149.22,27.41,5.94,17.62,1.42,Higher Demand
+162,Midtown East,Manhattan,360380,8919769.07,24.75,3.09,15.6,3.4,Higher Demand
+107,Gramercy,Manhattan,211508,4807386.82,22.73,2.97,14.16,2.0,Higher Demand
+125,Hudson Sq,Manhattan,54372,1368010.27,25.16,4.27,15.84,0.51,Higher Demand
+13,Battery Park City,Manhattan,67689,2203660.91,32.56,5.63,19.82,0.64,Higher Demand
+43,Central Park,Manhattan,170777,3974780.39,23.27,3.28,15.5,1.61,Higher Demand
+143,Lincoln Square West,Manhattan,120624,2639487.49,21.88,4.99,13.38,1.14,Higher Demand
+256,Williamsburg (South Side),Brooklyn,6440,203053.36,31.53,4.44,21.67,0.06,Underserved
+28,Briarwood/Jamaica Hills,Queens,1366,66266.31,48.51,23.69,28.17,0.01,Underserved
+243,Washington Heights North,Manhattan,3103,102330.38,32.98,20.91,22.86,0.03,Underserved
+205,Saint Albans,Queens,1439,58261.53,40.49,155.77,45.45,0.01,Underserved
+185,Pelham Parkway,Bronx,467,16860.59,36.1,7.4,41.93,0.0,Underserved
+64,Douglaston,Queens,201,9930.77,49.41,9.15,30.39,0.0,Underserved
+196,Rego Park,Queens,1120,45909.57,40.99,6.01,27.53,0.01,Underserved
+181,Park Slope,Brooklyn,5463,174858.49,32.01,12.44,26.53,0.05,Underserved
+225,Stuyvesant Heights,Brooklyn,3535,109326.58,30.93,23.03,33.15,0.03,Underserved
+210,Sheepshead Bay,Brooklyn,1056,41796.18,39.58,8.15,48.43,0.01,Underserved
+96,Forest Park/Highland Park,Queens,79,3230.1,40.89,7.11,35.47,0.0,Underserved
+202,Roosevelt Island,Manhattan,612,22530.97,36.82,4.46,26.04,0.01,Underserved
+112,Greenpoint,Brooklyn,4559,141811.92,31.11,23.31,20.09,0.04,Underserved
+180,Ozone Park,Queens,543,22000.2,40.52,6.57,30.96,0.01,Underserved
+76,East New York,Brooklyn,4856,161751.52,33.31,6.47,38.67,0.05,Underserved
+193,Queensbridge/Ravenswood,Queens,4752,90338.06,19.01,1.51,11.14,0.04,Underserved
+56,Corona,Queens,1188,50281.85,42.32,6.9,31.95,0.01,Underserved
+189,Prospect Heights,Brooklyn,2000,63798.86,31.9,4.95,28.04,0.02,Underserved
+203,Rosedale,Queens,655,31685.45,48.37,10.32,43.7,0.01,Underserved
+173,North Corona,Queens,508,16816.73,33.1,5.96,26.49,0.0,Underserved
+168,Mott Haven/Port Morris,Bronx,3569,107005.38,29.98,16.44,22.8,0.03,Underserved
+91,Flatlands,Brooklyn,2592,82720.3,31.91,26.45,39.42,0.02,Underserved
+260,Woodside,Queens,3111,109839.24,35.31,4.27,19.45,0.03,Underserved
+134,Kew Gardens,Queens,1432,83037.87,57.99,5.49,21.29,0.01,Underserved
+54,Columbia Street,Brooklyn,447,15313.89,34.26,94.47,22.72,0.0,Underserved
+220,Spuyten Duyvil/Kingsbridge,Bronx,775,29228.88,37.71,7.96,35.1,0.01,Underserved
+242,Van Nest/Morris Park,Bronx,699,23850.12,34.12,128.12,38.58,0.01,Underserved
+3,Allerton/Pelham Gardens,Bronx,497,18665.54,37.56,7.95,40.36,0.0,Underserved
+40,Carroll Gardens,Brooklyn,2061,65000.5,31.54,64.18,22.45,0.02,Underserved
+32,Bronxdale,Bronx,561,21843.69,38.94,8.37,44.91,0.01,Underserved
+198,Ridgewood,Queens,1187,37657.82,31.73,12.7,27.16,0.01,Underserved
+29,Brighton Beach,Brooklyn,757,31256.75,41.29,8.95,50.53,0.01,Underserved
+85,Erasmus,Brooklyn,1483,46449.61,31.32,5.75,37.99,0.01,Underserved
+149,Madison,Brooklyn,600,19523.27,32.54,6.15,39.46,0.01,Underserved
+36,Bushwick North,Brooklyn,2237,73293.78,32.76,5.35,24.96,0.02,Underserved
+228,Sunset Park West,Brooklyn,1362,49849.12,36.6,6.6,37.65,0.01,Underserved
+78,East Tremont,Bronx,908,31412.74,34.6,7.14,37.68,0.01,Underserved
+9,Auburndale,Queens,217,7892.06,36.37,716.9,30.11,0.0,Underserved
+192,Queensboro Hill,Queens,279,9910.39,35.52,6.71,31.63,0.0,Underserved
+175,Oakland Gardens,Queens,269,10470.68,38.92,8.48,31.38,0.0,Underserved
+6,Arrochar/Fort Wadsworth,Staten Island,145,3971.4,27.39,7.59,42.6,0.0,Underserved
+227,Sunset Park East,Brooklyn,489,17619.23,36.03,6.24,38.12,0.0,Underserved
+214,South Beach/Dongan Hills,Staten Island,35,1648.27,47.09,6.93,17.8,0.0,Underserved
+34,Brooklyn Navy Yard,Brooklyn,669,20999.74,31.39,4.65,22.35,0.01,Underserved
+120,Highbridge Park,Manhattan,66,2603.66,39.45,15.09,14.83,0.0,Underserved
+23,Bloomfield/Emerson Hill,Staten Island,42,3041.96,72.43,12.76,33.86,0.0,Underserved
+251,Westerleigh,Staten Island,12,1264.74,105.4,12.85,36.08,0.0,Underserved
+30,Broad Channel,Queens,23,728.71,31.68,4.93,21.96,0.0,Underserved
+109,Great Kills,Staten Island,5,324.84,64.97,10.27,22.8,0.0,Underserved
+176,Oakwood,Staten Island,6,397.8,66.3,13.5,138.17,0.0,Underserved
+2,Jamaica Bay,Queens,10,648.27,64.83,13.33,35.9,0.0,Underserved
+5,Arden Heights,Staten Island,1,41.5,41.5,0.0,1.0,0.0,Underserved

@@ -1,0 +1,2 @@
+generated_at,raw_taxi_rows,clean_taxi_rows,fact_taxi_rows,clean_fact_difference,invalid_timestamp_rows,negative_distance_rows,negative_fare_rows,negative_total_amount_rows,missing_weather_rows,missing_pickup_zone_rows,missing_dropoff_zone_rows
+2026-09-25 18:49:59.662021+05:30,10777315,10594140,10594140,0,0,0,0,0,0,39384,92773

@@ -1,0 +1,38 @@
+-- MetroPulse
+-- Four-Week Pilot Design
+--
+-- Initiative 1:
+-- Peak-hour capacity planning
+-- Test additional driver/capacity availability during 17:00-20:00.
+--
+-- Initiative 2:
+-- Weather-responsive capacity planning
+-- Test additional capacity during observed/forecast rainy periods.
+--
+-- Week 1:
+-- Establish baseline metrics and select pilot zones/hours.
+--
+-- Week 2:
+-- Launch peak-hour and weather-responsive capacity tests.
+--
+-- Week 3:
+-- Continue pilot and monitor demand, trip completion,
+-- median duration, and service availability.
+--
+-- Week 4:
+-- Compare pilot periods with baseline periods.
+-- Review operational impact, risks and data quality.
+--
+-- Primary metrics:
+-- trip volume
+-- median trip duration
+-- hourly demand
+-- completed trips
+-- average charged amount
+--
+-- Decision rule:
+-- Continue, modify or stop the pilot based on observed
+-- operational metrics and uncertainty intervals.
+--
+-- Limitation:
+-- These observational results do not establish causality.

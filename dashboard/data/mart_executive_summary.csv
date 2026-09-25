@@ -1,0 +1,2 @@
+total_trips,total_passengers,total_revenue,avg_amount_per_trip,median_amount_per_trip,avg_trip_distance,median_trip_distance,median_trip_duration_minutes,avg_amount_per_mile,avg_amount_per_minute,peak_trips,peak_hour_share_pct,airport_trips,airport_trip_share_pct,rainy_trips,rainy_trip_share_pct
+10594140,12523363,304772568.04,28.77,21.36,5.23,1.8,13.0,18.22,2.1,2714621,25.62,1058594,9.99,1900171,17.94

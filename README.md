@@ -1,156 +1,101 @@
-\# MetroPulse
+# MetroPulse
 
+MetroPulse is an end-to-end urban mobility intelligence platform for analyzing NYC Yellow Taxi demand, fares, weather, and subway activity for April 1, 2024 through June 30, 2024.
 
+## Project Objective
 
-MetroPulse is an analytics project for a fictional urban mobility company
+The project combines taxi trip data, NYC taxi-zone information, historical weather data, and MTA subway hourly ridership to produce reusable analytical datasets and an interactive dashboard.
 
-evaluating the New York City market.
+The workflow is designed to be reproducible:
 
+Raw Sources → Staging → Intermediate → Analytical Marts → Analysis → Dashboard
 
+## Analysis Period
 
-The project combines NYC taxi trip data, weather data, taxi-zone information,
+April 1, 2024 – June 30, 2024
 
-and subway ridership data to understand demand patterns, trip behaviour,
+## Data Sources
 
-geographic opportunities, and factors associated with mobility demand.
+### NYC TLC Yellow Taxi Trip Records
+Monthly Yellow Taxi trip records for:
+- April 2024
+- May 2024
+- June 2024
 
+Source:
+https://www.nyc.gov/site/tlc/about/tlc-trip-record-data.page
 
+### NYC Taxi Zones
 
-\## Project Objective
+NYC Taxi Zone data was obtained from the official NYC Open Data platform.
 
+Source:
+https://data.cityofnewyork.us/Transportation/NYC-Taxi-Zones/8meu-9t5y
 
+The downloaded export contains taxi-zone identifiers, boroughs, zone names, and geometry-related fields.
 
-The main objective is to build a reproducible analytics workflow that:
+### Open-Meteo Historical Weather
 
+Hourly NYC weather data was collected for the complete analysis period.
 
+Source:
+https://open-meteo.com/
 
-\- collects public data programmatically
+### MTA Subway Hourly Ridership
 
-\- preserves the raw data
+Hourly subway ridership data was collected programmatically for the analysis period.
 
-\- cleans and validates the data
+Source:
+https://data.ny.gov/
 
-\- transforms the data using SQL
+## Technology Stack
 
-\- creates reusable analytical metrics
+- Python
+- DuckDB
+- SQL
+- Pandas
+- Requests
+- Streamlit
+- Plotly
+- Git / GitHub
 
-\- analyses demand across time and locations
-
-\- studies relationships with weather and subway activity
-
-\- presents the results through an interactive dashboard
-
-
-
-\## Assessment Period
-
-
-
-1 April 2024 to 30 June 2024
-
-
-
-Core metrics will use the available records for the complete assessment
-
-period. Sampling may only be used during development or exploratory work.
-
-
-
-\## Data Sources
-
-
-
-The project uses the following public sources:
-
-
-
-1\. NYC TLC Yellow Taxi Trip Records
-
-2\. NYC TLC Taxi Zone Lookup / Shapefile
-
-3\. Open-Meteo Historical Weather API
-
-4\. MTA Subway Hourly Ridership data
-
-
-
-\## Technology
-
-
-
-\- Python
-
-\- Pandas
-
-\- NumPy
-
-\- DuckDB
-
-\- SQL
-
-\- PyArrow
-
-\- SciPy
-
-\- Plotly
-
-\- Streamlit
-
-\- Git / GitHub
-
-
-
-\## Project Structure
-
-
+## Project Structure
 
 ```text
-
 MetroPulse/
-
 │
-
-├── data/
-
-│   ├── raw/
-
-│   ├── staging/
-
-│   └── processed/
-
-│
-
-├── src/
-
-│   ├── ingestion/
-
-│   ├── quality/
-
-│   └── analysis/
-
-│
-
-├── sql/
-
-│   ├── staging/
-
-│   ├── intermediate/
-
-│   └── marts/
-
-│
-
-├── tests/
-
 ├── dashboard/
-
-├── docs/
-
+│   ├── app.py
+│   └── data/
 │
-
-├── .gitignore
-
+├── data/
+│   └── raw/
+│
+├── database/
+│   └── metropulse.duckdb
+│
+├── metadata/
+│   └── source_metadata.json
+│
+├── sql/
+│   ├── staging/
+│   ├── intermediate/
+│   ├── marts/
+│   └── analysis/
+│
+├── src/
+│   ├── ingestion/
+│   │   ├── taxi.py
+│   │   ├── weather.py
+│   │   └── mta.py
+│   ├── metadata.py
+│   ├── rebuild_database.py
+│   └── export_dashboard_data.py
+│
+├── tests/
+│   └── data_quality_tests.py
+│
+├── metric_dictionary.md
 ├── requirements.txt
-
+├── .gitignore
 └── README.md
-

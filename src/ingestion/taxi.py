@@ -77,6 +77,15 @@ def download_taxi_file(month):
             else:
                 print(f"Could not download {file_name} after 3 attempts.")
 
+        except Exception as error:
+            print(f"Unexpected error while processing {file_name}: {error}")
+
+            if attempt < 3:
+                print("Retrying in 5 seconds...")
+                time.sleep(5)
+            else:
+                print(f"Could not process {file_name} after 3 attempts.")
+
 
 def main():
     print("Starting NYC TLC taxi data ingestion...")
