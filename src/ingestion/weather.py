@@ -37,34 +37,78 @@ def calculate_sha256(file_path):
 def main():
     print("Starting NYC weather data ingestion...")
 
-    response = requests.get(URL, params=PARAMS, timeout=60)
-    response.raise_for_status()
+    # Prevent duplicate ingestion on rerun
+    if OUTPUT_FILE.exists() and META_FILE.exists():
+        print("Weather data already exists. Skipping download.")
+        print(f"Existing file: {OUTPUT_FILE}")
+        return
 
-    data = response.json()
+    max_retries = 3
 
-    with open(OUTPUT_FILE, "w", encoding="utf-8") as file:
-        json.dump(data, file, indent=2)
+    for attempt in range(1, max_retries + 1):
+        try:
+            print(
+                f"Requesting weather data "
+                f"(attempt {attempt}/{max_retries})..."
+            )
 
-    file_hash = calculate_sha256(OUTPUT_FILE)
+            response = requests.get(
+                URL,
+                params=PARAMS,
+                timeout=60
+            )
 
-    metadata = {
-        "source_url": URL,
-        "source_period": "2024-04-01 to 2024-06-30",
-        "extraction_timestamp_utc": datetime.now(timezone.utc).isoformat(),
-        "latitude": PARAMS["latitude"],
-        "longitude": PARAMS["longitude"],
-        "timezone": PARAMS["timezone"],
-        "sha256": file_hash,
-    }
+            response.raise_for_status()
 
-    with open(META_FILE, "w", encoding="utf-8") as file:
-        json.dump(metadata, file, indent=2)
+            data = response.json()
 
-    print(f"Saved weather data: {OUTPUT_FILE}")
-    print(f"Saved metadata: {META_FILE}")
-    print(f"SHA256: {file_hash}")
-    print("Weather ingestion finished.")
+            if not isinstance(data, dict):
+                raise ValueError(
+                    "Weather API returned an unexpected response format."
+                )
 
+            # Write to temporary file first
+            temp_file = OUTPUT_FILE.with_suffix(".part")
+
+            with open(temp_file, "w", encoding="utf-8") as file:
+                json.dump(data, file, indent=2)
+
+            temp_file.replace(OUTPUT_FILE)
+
+            file_hash = calculate_sha256(OUTPUT_FILE)
+
+            metadata = {
+                "source_url": URL,
+                "source_period": "2024-04-01 to 2024-06-30",
+                "extraction_timestamp_utc": datetime.now(timezone.utc).isoformat(),
+                "latitude": PARAMS["latitude"],
+                "longitude": PARAMS["longitude"],
+                "timezone": PARAMS["timezone"],
+                "sha256": file_hash,
+            }
+
+            with open(META_FILE, "w", encoding="utf-8") as file:
+                json.dump(metadata, file, indent=2)
+
+            print(f"Saved weather data: {OUTPUT_FILE}")
+            print(f"Saved metadata: {META_FILE}")
+            print(f"SHA256: {file_hash}")
+            print("Weather ingestion finished successfully.")
+
+            return
+
+        except Exception as error:
+
+            print(f"Attempt {attempt} failed: {error}")
+
+            if attempt < max_retries:
+                print("Retrying in 5 seconds...")
+                import time
+                time.sleep(5)
+            else:
+                raise RuntimeError(
+                    "Weather ingestion failed after 3 attempts."
+                ) from error
 
 if __name__ == "__main__":
     main()

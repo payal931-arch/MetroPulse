@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 import plotly.express as px
 import os
-
+from datetime import datetime
 
 # ============================================================
 # PAGE CONFIG
@@ -32,9 +32,13 @@ executive = load_data("mart_executive_summary.csv")
 daily = load_data("mart_daily_demand.csv")
 hourly = load_data("mart_hourly_demand.csv")
 zones = load_data("mart_zone_performance.csv")
+dropoff = load_data("mart_dropoff_performance.csv")
 payments = load_data("mart_payment_analysis.csv")
+rate_analysis = load_data("mart_rate_analysis.csv")
+airport_analysis = load_data("mart_airport_analysis.csv")
 weather = load_data("mart_weather_demand.csv")
 transit = load_data("mart_transit_demand.csv")
+quality = load_data("mart_quality.csv")
 
 kpi = executive.iloc[0]
 
@@ -64,19 +68,48 @@ if len(date_range) == 2:
     ]
 else:
     daily_filtered = daily
+
+ # ============================================================
+# HOUR FILTER
+# ============================================================
+
+st.sidebar.markdown("### 🕐 Hour Filter")
+
+hour_options = ["All Hours"] + list(range(24))
+
+selected_hour = st.sidebar.selectbox(
+    "Select pickup hour",
+    hour_options
+)
+
+if selected_hour == "All Hours":
+    hourly_filtered = hourly
+else:
+    hourly_filtered = hourly[
+        hourly["pickup_hour"] == selected_hour
+    ]
     # ============================================================
 # BOROUGH FILTER
 # ============================================================
 
-st.sidebar.markdown("### 🏙️ Borough Filter")
 
-# Check which borough column actually exists
+# ============================================================
+# BOROUGH + PICKUP ZONE FILTERS
+# ============================================================
+
+st.sidebar.markdown("### 🏙️ Location Filters")
+
+# ---------------- BOROUGH FILTER ----------------
+
 if "borough" in zones.columns:
     borough_column = "borough"
+
 elif "pickup_borough" in zones.columns:
     borough_column = "pickup_borough"
+
 else:
     borough_column = None
+
 
 if borough_column is not None:
 
@@ -94,22 +127,125 @@ if borough_column is not None:
     )
 
     if selected_borough == "All Boroughs":
-        zones_filtered = zones
+
+        zones_filtered = zones.copy()
+
     else:
+
         zones_filtered = zones[
             zones[borough_column].astype(str) == selected_borough
-        ]
+        ].copy()
 
 else:
 
     selected_borough = "All Boroughs"
-    zones_filtered = zones
+    zones_filtered = zones.copy()
 
     st.sidebar.warning(
         "Borough data is not available in the zone dataset."
     )
 
 
+# ---------------- PICKUP ZONE FILTER ----------------
+
+zone_options = sorted(
+    zones_filtered["zone"]
+    .dropna()
+    .astype(str)
+    .unique()
+    .tolist()
+)
+
+selected_zones = st.sidebar.multiselect(
+    "Select pickup zone",
+    zone_options,
+    placeholder="Search or select zones"
+)
+
+if selected_zones:
+
+    zones_filtered = zones_filtered[
+        zones_filtered["zone"].isin(selected_zones)
+    ].copy()
+
+# ---------------- PAYMENT TYPE FILTER ----------------
+
+st.sidebar.markdown("### 💳 Payment Filter")
+
+payment_options = ["All Payment Types"] + sorted(
+    payments["payment_type"]
+    .dropna()
+    .astype(str)
+    .unique()
+    .tolist()
+)
+
+selected_payment = st.sidebar.selectbox(
+    "Select payment type",
+    payment_options
+)
+
+# ---------------- WEATHER FILTER ----------------
+
+st.sidebar.markdown("### 🌧️ Weather Filter")
+
+weather_options = ["All Weather Conditions"] + sorted(
+    weather["precipitation_category"]
+    .dropna()
+    .astype(str)
+    .unique()
+    .tolist()
+)
+
+selected_weather = st.sidebar.selectbox(
+    "Select weather condition",
+    weather_options
+)
+
+st.sidebar.markdown("### 📍 Drop-off Filters")
+
+dropoff_borough_options = ["All Drop-off Boroughs"] + sorted(
+    dropoff["dropoff_borough"].dropna().astype(str).unique().tolist()
+)
+
+selected_dropoff_borough = st.sidebar.selectbox(
+    "Select drop-off borough",
+    dropoff_borough_options
+)
+
+dropoff_zone_options = sorted(
+    dropoff["dropoff_zone"].dropna().astype(str).unique().tolist()
+)
+
+selected_dropoff_zones = st.sidebar.multiselect(
+    "Select drop-off zone",
+    dropoff_zone_options,
+    placeholder="Search or select drop-off zones"
+)
+
+
+st.sidebar.markdown("### 🚕 Rate Type Filter")
+
+rate_options = ["All Rate Types"] + sorted(
+    rate_analysis["rate_code_id"].dropna().astype(str).unique().tolist()
+)
+
+selected_rate = st.sidebar.selectbox(
+    "Select rate type",
+    rate_options
+)
+
+
+st.sidebar.markdown("### ✈️ Airport Trip Filter")
+
+airport_options = ["All Airport Status"] + sorted(
+    airport_analysis["airport_flag"].dropna().astype(str).unique().tolist()
+)
+
+selected_airport = st.sidebar.selectbox(
+    "Select airport status",
+    airport_options
+)
 # ============================================================
 # CLASSIC DARK THEME
 # ============================================================
@@ -192,7 +328,7 @@ st.markdown(
 
     /* ---------- KPI CARDS ---------- */
 
-    div[data-testid="stMetric"] {
+div[data-testid="stMetric"] {
     background: linear-gradient(
         145deg,
         #111827,
@@ -205,17 +341,32 @@ st.markdown(
     transition: all 0.2s ease;
 }
 
-    div[data-testid="stMetricLabel"] {
-        color: #9ca3af !important;
-        font-size: 13px;
-    }
+/* ---------- METRIC LABELS ---------- */
 
-    div[data-testid="stMetricValue"] {
+div[data-testid="stMetricLabel"],
+div[data-testid="stMetricLabel"] *,
+div[data-testid="stMetricLabel"] p,
+div[data-testid="stMetricLabel"] span,
+div[data-testid="stMetricLabel"] label {
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
+    opacity: 1 !important;
+    font-size: 13px !important;
+    font-weight: 600 !important;
+}
+div[data-testid="stMetricLabel"] {
+    white-space: normal !important;
+    overflow: visible !important;
+    text-overflow: clip !important;
+}
+
+/* ---------- METRIC VALUES ---------- */
+
+div[data-testid="stMetricValue"] {
     color: #22D3EE !important;
     font-size: 28px;
     font-weight: 750;
 }
-
     /* ---------- CHART CONTAINERS ---------- */
 
     div[data-testid="stPlotlyChart"] {
@@ -378,7 +529,9 @@ st.markdown(
     """,
     unsafe_allow_html=True
 )
-
+st.caption(
+    f"Last dashboard refresh: {datetime.now().strftime('%d %b %Y, %I:%M %p')}"
+)
 
 # ============================================================
 # EXECUTIVE OVERVIEW
@@ -399,24 +552,27 @@ c1, c2, c3, c4 = st.columns(4)
 
 c1.metric(
     "Total Trips",
-    f"{int(kpi['total_trips']):,}"
+    f"{int(kpi['total_trips']):,}",
+    help="Total number of valid taxi trips included in the analytical dataset after data-quality filtering."
 )
 
 c2.metric(
     "Charged Amount",
-    f"${kpi['total_revenue']/1_000_000:.2f}M"
+    f"${kpi['total_revenue']/1_000_000:.2f}M",
+    help="Total charged amount recorded across valid taxi trips."
 )
 
 c3.metric(
     "Avg Amount / Trip",
-    f"${kpi['avg_amount_per_trip']:.2f}"
+    f"${kpi['avg_amount_per_trip']:.2f}",
+    help="Average charged amount per valid taxi trip."
 )
 
 c4.metric(
     "Median Duration",
-    f"{kpi['median_trip_duration_minutes']:.0f} min"
+    f"{kpi['median_trip_duration_minutes']:.0f} min",
+    help="Median taxi trip duration in minutes. Median is used because trip duration can be highly skewed."
 )
-
 
 st.markdown("<br>", unsafe_allow_html=True)
 
@@ -425,22 +581,26 @@ c5, c6, c7, c8 = st.columns(4)
 
 c5.metric(
     "Passengers",
-    f"{int(kpi['total_passengers']):,}"
+    f"{int(kpi['total_passengers']):,}",
+    help="Total recorded passenger count across valid taxi trips."
 )
 
 c6.metric(
     "Peak-Hour Share",
-    f"{kpi['peak_hour_share_pct']:.2f}%"
+    f"{kpi['peak_hour_share_pct']:.2f}%",
+    help="Percentage of taxi trips occurring during the defined peak period of 17:00–20:00."
 )
 
 c7.metric(
     "Airport Share",
-    f"{kpi['airport_trip_share_pct']:.2f}%"
+    f"{kpi['airport_trip_share_pct']:.2f}%",
+    help="Percentage of taxi trips classified as airport-related trips."
 )
 
 c8.metric(
     "Rainy-Hour Share",
-    f"{kpi['rainy_trip_share_pct']:.2f}%"
+    f"{kpi['rainy_trip_share_pct']:.2f}%",
+    help="Percentage of recorded taxi trips occurring during hours classified as having measurable precipitation."
 )
 
 
@@ -559,6 +719,7 @@ st.plotly_chart(
 
 hourly["trip_date"] = pd.to_datetime(hourly["trip_date"])
 
+# Apply date filter first
 if len(date_range) == 2:
 
     hourly_filtered = hourly[
@@ -569,6 +730,14 @@ if len(date_range) == 2:
 else:
 
     hourly_filtered = hourly
+
+
+# Apply hour filter
+if selected_hour != "All Hours":
+
+    hourly_filtered = hourly_filtered[
+        hourly_filtered["pickup_hour"] == selected_hour
+    ]
 
 
 hourly_summary = (
@@ -675,6 +844,73 @@ st.plotly_chart(
     use_container_width=True
 )
 
+# ============================================================
+# DROP-OFF ZONE PERFORMANCE
+# ============================================================
+
+st.markdown(
+    "<div class='section-description'>Drop-off zone activity based on the selected destination filters.</div>",
+    unsafe_allow_html=True
+)
+
+dropoff_filtered = dropoff.copy()
+
+if selected_dropoff_borough != "All Drop-off Boroughs":
+    dropoff_filtered = dropoff_filtered[
+        dropoff_filtered["dropoff_borough"].astype(str)
+        == selected_dropoff_borough
+    ]
+
+if selected_dropoff_zones:
+    dropoff_filtered = dropoff_filtered[
+        dropoff_filtered["dropoff_zone"].isin(selected_dropoff_zones)
+    ]
+
+if dropoff_filtered.empty:
+
+    st.info(
+        "No drop-off-zone data matches the selected filters. "
+        "Try selecting a different borough or zone."
+    )
+
+else:
+
+    top_dropoff = (
+        dropoff_filtered
+        .sort_values("total_trips", ascending=False)
+        .head(15)
+        .sort_values("total_trips")
+    )
+
+    fig_dropoff = px.bar(
+        top_dropoff,
+        x="total_trips",
+        y="dropoff_zone",
+        orientation="h",
+        labels={
+            "total_trips": "Trips",
+            "dropoff_zone": "Drop-off Zone"
+        }
+    )
+
+    fig_dropoff.update_traces(
+        marker_color="#6FA8DC"
+    )
+
+    fig_dropoff.update_layout(
+        height=560,
+        paper_bgcolor="#111827",
+        plot_bgcolor="#111827",
+        font=dict(color="#d1d5db"),
+        xaxis=dict(gridcolor="#263244"),
+        yaxis=dict(gridcolor="#263244"),
+        margin=dict(l=20, r=20, t=20, b=20)
+    )
+
+    st.plotly_chart(
+        fig_dropoff,
+        use_container_width=True
+    )
 
 # ============================================================
 # ZONES
@@ -749,16 +985,26 @@ w1, w2 = st.columns(2)
 
 with w1:
 
+    if selected_weather == "All Weather Conditions":
+
+        weather_filtered = weather.copy()
+
+    else:
+
+        weather_filtered = weather[
+            weather["precipitation_category"].astype(str)
+            == selected_weather
+        ].copy()
+
     fig_weather = px.bar(
-        weather,
+        weather_filtered,
         x="precipitation_category",
         y="total_trips",
         labels={
-            "precipitation_category": "Precipitation",
+            "precipitation_category": "Weather",
             "total_trips": "Trips"
         }
     )
-
     fig_weather.update_layout(
         height=430,
         paper_bgcolor="#111827",
@@ -777,8 +1023,18 @@ with w1:
 
 with w2:
 
+    if selected_payment == "All Payment Types":
+
+        payments_filtered = payments.copy()
+
+    else:
+
+        payments_filtered = payments[
+            payments["payment_type"].astype(str) == selected_payment
+        ].copy()
+
     fig_payment = px.bar(
-        payments,
+        payments_filtered,
         x="payment_type",
         y="total_trips",
         labels={
@@ -811,7 +1067,126 @@ with w2:
         use_container_width=True
     )
 
+# ============================================================
+# RATE TYPE + AIRPORT ANALYSIS
+# ============================================================
 
+st.markdown(
+    "<div class='section-header'>Rate Type & Airport Analysis</div>",
+    unsafe_allow_html=True
+)
+
+st.markdown(
+    "<div class='section-description'>Trip activity by taxi rate type and airport classification.</div>",
+    unsafe_allow_html=True
+)
+
+r1, r2 = st.columns(2)
+
+
+# ------------------------------------------------------------
+# RATE TYPE
+# ------------------------------------------------------------
+
+with r1:
+
+    rate_filtered = rate_analysis.copy()
+
+    if selected_rate != "All Rate Types":
+        rate_filtered = rate_filtered[
+            rate_filtered["rate_code_id"].astype(str)
+            == selected_rate
+        ]
+
+    if rate_filtered.empty:
+
+        st.info(
+            "No rate-type data matches the selected filter."
+        )
+
+    else:
+
+        fig_rate = px.bar(
+            rate_filtered,
+            x="rate_code_id",
+            y="total_trips",
+            labels={
+                "rate_code_id": "Rate Type",
+                "total_trips": "Trips"
+            }
+        )
+
+        fig_rate.update_traces(
+            marker_color="#7C83FD"
+        )
+
+        fig_rate.update_layout(
+            height=430,
+            paper_bgcolor="#111827",
+            plot_bgcolor="#111827",
+            font=dict(color="#d1d5db"),
+            xaxis=dict(gridcolor="#263244"),
+            yaxis=dict(gridcolor="#263244"),
+            margin=dict(l=20, r=20, t=20, b=20)
+        )
+
+        st.plotly_chart(
+            fig_rate,
+            use_container_width=True
+        )
+
+
+# ------------------------------------------------------------
+# AIRPORT
+# ------------------------------------------------------------
+
+with r2:
+
+    airport_filtered = airport_analysis.copy()
+
+    if selected_airport != "All Airport Status":
+        airport_filtered = airport_filtered[
+            airport_filtered["airport_flag"].astype(str)
+            == selected_airport
+        ]
+
+    if airport_filtered.empty:
+
+        st.info(
+            "No airport-trip data matches the selected filter."
+        )
+
+    else:
+
+        fig_airport = px.bar(
+            airport_filtered,
+            x="airport_flag",
+            y="total_trips",
+            labels={
+                "airport_flag": "Airport Status",
+                "total_trips": "Trips"
+            }
+        )
+
+        fig_airport.update_traces(
+            marker_color="#F4A261"
+        )
+
+        fig_airport.update_layout(
+            height=430,
+            paper_bgcolor="#111827",
+            plot_bgcolor="#111827",
+            font=dict(color="#d1d5db"),
+            xaxis=dict(gridcolor="#263244"),
+            yaxis=dict(gridcolor="#263244"),
+            margin=dict(l=20, r=20, t=20, b=20)
+        )
+
+        st.plotly_chart(
+            fig_airport,
+            use_container_width=True
+        )
+        
 # ============================================================
 # TRANSIT
 # ============================================================
@@ -878,8 +1253,152 @@ st.markdown(
 # METHODOLOGY
 # ============================================================
 
+# ============================================================
+# DATA QUALITY & ANOMALIES
+# ============================================================
+
 st.markdown(
-    "<div class='section-header'>Methodology & Data Quality</div>",
+    "<div class='section-header'>Data Quality & Anomaly Status</div>",
+    unsafe_allow_html=True
+)
+
+quality = load_data("mart_quality.csv")
+
+q = quality.iloc[0]
+
+# Quality KPI cards
+q1, q2, q3, q4 = st.columns(4)
+
+with q1:
+    st.metric(
+        "Raw Taxi Rows",
+        f"{int(q['raw_taxi_rows']):,}",
+        help="Total taxi records ingested from the raw TLC trip files."
+    )
+
+with q2:
+    st.metric(
+        "Fact Taxi Rows",
+        f"{int(q['fact_taxi_rows']):,}",
+        help="Final cleaned taxi trip records available in the analytical fact table."
+    )
+
+with q3:
+    st.metric(
+        "Reconciliation Difference",
+        f"{int(q['clean_fact_difference']):,}",
+        help="Difference between cleaned taxi rows and final fact-table rows. Zero indicates reconciliation."
+    )
+
+with q4:
+    st.metric(
+        "Missing Weather",
+        f"{int(q['missing_weather_rows']):,}",
+        help="Taxi records without a matching hourly weather observation."
+    )
+
+
+st.markdown("<br>", unsafe_allow_html=True)
+
+# Validation results
+st.markdown(
+    "<div class='insight-card'>"
+    "<div class='insight-title'>Validation checks</div>"
+    "<div class='insight-text'>",
+    unsafe_allow_html=True
+)
+
+checks = [
+    ("Clean vs fact reconciliation", int(q["clean_fact_difference"]) == 0),
+    ("Invalid timestamp rows", int(q["invalid_timestamp_rows"]) == 0),
+    ("Negative distance rows", int(q["negative_distance_rows"]) == 0),
+    ("Negative fare rows", int(q["negative_fare_rows"]) == 0),
+    ("Negative total amount rows", int(q["negative_total_amount_rows"]) == 0),
+    ("Missing weather rows", int(q["missing_weather_rows"]) == 0),
+]
+
+for check_name, passed in checks:
+    if passed:
+        st.success(f"PASS — {check_name}")
+    else:
+        st.warning(f"CHECK — {check_name}")
+
+st.markdown(
+    "</div></div>",
+    unsafe_allow_html=True
+)
+
+
+# Zone completeness
+st.markdown(
+    "<div class='insight-card'>"
+    "<div class='insight-title'>Zone completeness</div>"
+    "<div class='insight-text'>",
+    unsafe_allow_html=True
+)
+
+pickup_missing = int(q["missing_pickup_zone_rows"])
+dropoff_missing = int(q["missing_dropoff_zone_rows"])
+
+st.write(
+    f"Missing pickup-zone mappings: **{pickup_missing:,}**"
+)
+
+st.write(
+    f"Missing drop-off-zone mappings: **{dropoff_missing:,}**"
+)
+
+st.caption(
+    "These records are retained in the analytical pipeline. "
+    "Missing zone mappings can affect zone-level analysis but do not remove the underlying taxi trip."
+)
+
+st.markdown(
+    "</div></div>",
+    unsafe_allow_html=True
+)
+
+
+# Methodology
+st.markdown(
+    "<div class='section-header'>Methodology</div>",
+    unsafe_allow_html=True
+)
+
+st.markdown(
+    """
+    <div class="insight-card">
+
+    <div class="insight-title">Data pipeline</div>
+
+    <div class="insight-text">
+
+    Raw sources → Staging → Intermediate transformations → Analytical marts
+
+    <br><br>
+
+    <b style="color:white;">Analysis period:</b>
+    April 1, 2024 – June 30, 2024
+
+    <br><br>
+
+    <b style="color:white;">Sources:</b>
+    NYC TLC taxi data, NYC taxi zones, historical weather and MTA subway ridership.
+
+    <br><br>
+
+    <b style="color:white;">Quality controls:</b>
+    Timestamp validation, financial-value checks, zone mapping,
+    weather matching and fact-table reconciliation.
+
+    <br><br>
+
+    <b style="color:white;">Interpretation:</b>
+    Results are observational and should not be interpreted as causal effects.
+
+    </div>
+    </div>
+    """,
     unsafe_allow_html=True
 )
 
