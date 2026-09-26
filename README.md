@@ -2,6 +2,10 @@
 
 MetroPulse is an end-to-end urban mobility intelligence platform for analyzing NYC Yellow Taxi demand, fares, weather, and subway activity for the period **April 1, 2024 through June 30, 2024**.
 
+## Live Dashboard
+
+[Open the MetroPulse Dashboard](https://metropulse-86pqfrlx6cjjuw27jnsfbe.streamlit.app/)
+
 The project combines public transportation, taxi, weather, and geographic data to create a reproducible analytical pipeline and an interactive dashboard.
 
 ---
