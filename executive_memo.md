@@ -2,76 +2,76 @@
 
 ## Executive Summary
 
-MetroPulse analyzed 10.59 million NYC Yellow Taxi trips from April 1 through June 30, 2024, together with hourly weather and subway ridership data.
+MetroPulse analyzed 10.59 million NYC Yellow Taxi trips from April 1 to June 30, 2024, along with hourly weather and subway ridership data.
 
-Demand varied across the period. May recorded the highest monthly taxi demand at approximately 3.66 million trips, compared with 3.46 million in April and 3.48 million in June.
+Taxi demand changed during the three months. May had the highest number of trips at about 3.66 million, compared with 3.46 million in April and 3.48 million in June.
 
-Demand was concentrated during the afternoon and evening. The 17:00–20:00 period represented approximately 25.6% of all observed taxi trips.
+The busiest period was 17:00–20:00, which accounted for about 25.6% of all recorded taxi trips.
 
-Zone-level demand was also concentrated. Major Manhattan zones and airport zones generated substantial trip volume and revenue, while some high-volume zones showed relatively lower average trip amounts.
+Trip demand was also concentrated in major Manhattan zones and airport zones. These areas had high trip volume and revenue, although some high-volume zones had lower average trip amounts.
 
-Weather analysis produced a notable observational finding: average taxi demand per observed hour was higher during rainy hours than during non-rainy hours. However, this is an association and should not be interpreted as a causal weather effect.
+The weather analysis showed that average taxi demand was higher during rainy hours than during non-rainy hours. This is an observed relationship and does not prove that rain caused the increase.
 
 ## Recommended Pilot Initiatives
 
 ### 1. Peak-Hour Capacity Planning
 
-Historical data shows that 17:00–20:00 is the highest-demand period, accounting for approximately 25.6% of all trips.
+The data shows that 17:00–20:00 was the busiest period, with about 25.6% of all trips.
 
-A four-week pilot can focus operational monitoring and capacity planning during these hours.
+A four-week pilot can be used to monitor demand and test capacity planning during these hours.
 
-Observed peak-period volume:
+**Observed peak-period volume:**
 
-- Peak-hour trips: approximately 2.71 million
-- Average peak-period trips per day: approximately 29,831
-- Scenario planning range: 2%–5% of peak-period trips
+* Peak-hour trips: approximately 2.71 million
+* Average peak-period trips per day: approximately 29,831
+* Scenario planning range: 2%–5% of peak-period trips
 
-The 2%–5% figures are scenario ranges for pilot sizing, not predicted improvements.
+The 2%–5% figures are only scenario ranges for planning the pilot. They are not predicted improvements.
 
 ### 2. Weather-Responsive Capacity Planning
 
-Rainy hours showed higher observed taxi demand than non-rainy hours:
+Rainy hours had higher observed taxi demand than non-rainy hours:
 
-- Rainy-hour average: approximately 5,524 trips/hour
-- Non-rainy-hour average: approximately 4,725 trips/hour
-- Observed difference: approximately 16.9%
+* Rainy-hour average: approximately 5,524 trips/hour
+* Non-rainy-hour average: approximately 4,725 trips/hour
+* Observed difference: approximately 16.9%
 
-This relationship is observational. A four-week pilot should therefore test whether weather-responsive capacity planning produces measurable operational improvements rather than assuming that rain causes higher demand.
+This is based on observed data. The four-week pilot should test whether using weather information for capacity planning actually improves operations instead of assuming that rain causes higher demand.
 
 ## Four-Week Pilot
 
 ### Week 1 — Baseline
 
-Establish baseline demand, trip duration, completed trips, and average charged amount by hour.
+Record the normal demand, trip duration, completed trips, and average charged amount by hour.
 
 ### Week 2 — Peak-Hour Pilot
 
-Apply enhanced monitoring and capacity planning during 17:00–20:00.
+Use increased monitoring and capacity planning during the 17:00–20:00 period.
 
 ### Week 3 — Weather-Responsive Pilot
 
-Use weather conditions as an operational planning signal and compare outcomes with baseline periods.
+Use weather conditions as one planning signal and compare the results with the baseline period.
 
 ### Week 4 — Evaluation
 
 Compare:
 
-- trip volume
-- median trip duration
-- hourly demand
-- completed trips
-- average charged amount
+* Trip volume
+* Median trip duration
+* Hourly demand
+* Completed trips
+* Average charged amount
 
-Use uncertainty ranges and operational constraints when interpreting the results.
+Use uncertainty ranges and operational limitations when reviewing the results.
 
 ## Risks and Limitations
 
-The analysis is observational and does not establish causality.
+This analysis is observational, so it does not prove cause and effect.
 
-Taxi demand can also be affected by factors not captured in the available data, including events, traffic conditions, holidays, service availability, and other external factors.
+Taxi demand can also change because of factors not included in the available data, such as events, traffic, holidays, service availability, and other external factors.
 
-Extreme observations were reviewed through anomaly and sensitivity analysis. The conclusions should therefore be treated as historical evidence for pilot design rather than guaranteed future outcomes.
+Unusual observations were reviewed using anomaly and sensitivity analysis. The findings should be used as historical evidence for planning a pilot, not as a guarantee of future results.
 
 ## Decision Rule
 
-Continue, modify, or stop each pilot based on observed operational metrics, uncertainty, implementation feasibility, and comparison with the established baseline.
+Each pilot should be continued, changed, or stopped based on the observed operational results, uncertainty, practical implementation, and comparison with the baseline.

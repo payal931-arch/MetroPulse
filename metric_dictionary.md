@@ -1,188 +1,112 @@
-\# MetroPulse Metric Dictionary
+# MetroPulse Metric Dictionary
 
+This document explains the main metrics used in the MetroPulse analysis, including how each metric is calculated, what level of data it uses, and any important limitations.
 
+## 1. Total Trips
 
-\## 1. Total Trips
+* **Formula:** COUNT(*)
+* **Grain:** Individual taxi trip
+* **Filters:** Valid pickup/dropoff timestamps and valid core numeric fields
+* **Exclusions:** Invalid timestamp order, negative fare/total amount
+* **Limitation:** This represents the trips recorded in the dataset. It may not be the same as total actual service demand.
 
-\- Formula: COUNT(\*)
+## 2. Total Passengers
 
-\- Grain: Individual taxi trip
+* **Formula:** SUM(passenger_count)
+* **Grain:** Trip
+* **Filters:** Same as the core taxi fact table
+* **Limitation:** Passenger count is a reported field, so some records may have missing or estimated values.
 
-\- Filters: Valid pickup/dropoff timestamps and valid core numeric fields
+## 3. Total Revenue
 
-\- Exclusions: Invalid timestamp order, negative fare/total amount
+* **Formula:** SUM(total_amount)
+* **Grain:** Trip or selected aggregation
+* **Filters:** Valid taxi trips
+* **Limitation:** Total charged amount is used as the revenue measure for this analysis.
 
-\- Limitation: Represents recorded trips, not necessarily completed service demand.
+## 4. Average Amount per Trip
 
+* **Formula:** AVG(total_amount)
+* **Grain:** Trip
+* **Filters:** Valid taxi trips
+* **Limitation:** The average can be affected by unusually high or low values.
 
+## 5. Median Trip Amount
 
-\## 2. Total Passengers
+* **Formula:** MEDIAN(total_amount)
+* **Grain:** Trip
+* **Filters:** Valid taxi trips
+* **Limitation:** The median represents the middle trip amount. It should not be used as a measure of total revenue.
 
-\- Formula: SUM(passenger\_count)
+## 6. Average Trip Distance
 
-\- Grain: Trip
+* **Formula:** AVG(trip_distance)
+* **Grain:** Trip
+* **Filters:** Non-negative trip distance
+* **Limitation:** This is based on the trip distance recorded in the taxi data.
 
-\- Filters: Same as core taxi fact table
+## 7. Trip Duration
 
-\- Limitation: Passenger count is a reported field and may contain missing or estimated values.
+* **Formula:** dropoff_datetime - pickup_datetime
+* **Grain:** Trip
+* **Filters:** Dropoff must occur after pickup
+* **Limitation:** Very long trips may include unusual operational cases.
 
+## 8. Average Speed
 
+* **Formula:** trip_distance / (trip_duration_minutes / 60)
+* **Grain:** Trip
+* **Filters:** Positive distance and duration
+* **Limitation:** This is the calculated average speed for a trip. It should not be treated as the actual traffic speed on individual roads.
 
-\## 3. Total Revenue
+## 9. Tip-to-Fare Percentage
 
-\- Formula: SUM(total\_amount)
+* **Formula:** SUM(tip_amount) / SUM(fare_amount) × 100
+* **Grain:** Selected payment group or aggregation
+* **Filters:** Fare amount must be non-zero
+* **Limitation:** Tipping patterns can vary depending on payment type and other factors.
 
-\- Grain: Trip or selected aggregation
+## 10. Peak-Hour Share
 
-\- Filters: Valid taxi trips
+* **Formula:** Trips from 17:00–20:00 / all trips × 100
+* **Grain:** Full analysis period
+* **Filters:** Pickup hour between 17 and 20
+* **Limitation:** The 5 PM–8 PM window is the peak period used for this project. Other analyses may define peak hours differently.
 
-\- Limitation: Total charged amount is used as the analytical revenue proxy.
+## 11. Rain-Hour Demand
 
+* **Formula:** Average hourly taxi trips during precipitation > 0
+* **Grain:** Date + hour
+* **Filters:** Precipitation greater than zero
+* **Limitation:** This shows an observed relationship between rain and taxi demand. It does not prove that rain causes higher demand.
 
+## 12. Subway Ridership
 
-\## 4. Average Amount per Trip
+* **Formula:** SUM(ridership)
+* **Grain:** Hourly transit observation
+* **Filters:** Valid transit timestamp and ridership
+* **Limitation:** Subway ridership is aggregated at the hourly level and is compared with taxi demand at the same hourly level.
 
-\- Formula: AVG(total\_amount)
+## 13. Taxi–Subway Correlation
 
-\- Grain: Trip
+* **Formula:** Pearson correlation between hourly taxi trips and subway ridership
+* **Grain:** Hour
+* **Filters:** Hours with available subway ridership
+* **Limitation:** Correlation shows how two variables move together. It does not prove that one causes a change in the other.
 
-\- Filters: Valid taxi trips
+## 14. Anomaly Rate
 
-\- Limitation: Mean can be influenced by extreme values.
+* **Formula:** Flagged trips / total trips × 100
+* **Grain:** Trip
+* **Current thresholds:**
 
+  * Duration > 180 minutes
+  * Distance > 100 miles
+  * Total amount > $500
+* **Limitation:** These thresholds are used to flag potentially unusual records. A flagged record is not automatically an incorrect record.
 
+## 15. 95% Confidence Interval
 
-\## 5. Median Trip Amount
-
-\- Formula: MEDIAN(total\_amount)
-
-\- Grain: Trip
-
-\- Filters: Valid taxi trips
-
-\- Limitation: Describes the middle observation and does not represent total revenue.
-
-
-
-\## 6. Average Trip Distance
-
-\- Formula: AVG(trip\_distance)
-
-\- Grain: Trip
-
-\- Filters: Non-negative trip distance
-
-\- Limitation: Based on recorded taxi trip distance.
-
-
-
-\## 7. Trip Duration
-
-\- Formula: dropoff\_datetime - pickup\_datetime
-
-\- Grain: Trip
-
-\- Filters: Dropoff must occur after pickup
-
-\- Limitation: Long-duration trips may include unusual operational cases.
-
-
-
-\## 8. Average Speed
-
-\- Formula: trip\_distance / (trip\_duration\_minutes / 60)
-
-\- Grain: Trip
-
-\- Filters: Positive distance and duration
-
-\- Limitation: Calculated average speed is not equivalent to road-segment traffic speed.
-
-
-
-\## 9. Tip-to-Fare Percentage
-
-\- Formula: SUM(tip\_amount) / SUM(fare\_amount) × 100
-
-\- Grain: Selected payment group or aggregation
-
-\- Filters: Fare amount must be non-zero
-
-\- Limitation: Payment-type behavior can affect observed tipping patterns.
-
-
-
-\## 10. Peak-Hour Share
-
-\- Formula: Trips from 17:00–20:00 / all trips × 100
-
-\- Grain: Full analysis period
-
-\- Filters: Pickup hour between 17 and 20
-
-\- Limitation: Peak window is defined for this analysis and may not represent every operational definition of peak.
-
-
-
-\## 11. Rain-Hour Demand
-
-\- Formula: Average hourly taxi trips during precipitation > 0
-
-\- Grain: Date + hour
-
-\- Filters: Precipitation greater than zero
-
-\- Limitation: Observational association; does not establish that rain causes higher demand.
-
-
-
-\## 12. Subway Ridership
-
-\- Formula: SUM(ridership)
-
-\- Grain: Hourly transit observation
-
-\- Filters: Valid transit timestamp and ridership
-
-\- Limitation: Aggregated subway ridership is compared with taxi demand at hourly level.
-
-
-
-\## 13. Taxi–Subway Correlation
-
-\- Formula: Pearson correlation between hourly taxi trips and subway ridership
-
-\- Grain: Hour
-
-\- Filters: Hours with available subway ridership
-
-\- Limitation: Correlation does not establish causation.
-
-
-
-\## 14. Anomaly Rate
-
-\- Formula: Flagged trips / total trips × 100
-
-\- Grain: Trip
-
-\- Current thresholds:
-
-&#x20; - Duration > 180 minutes
-
-&#x20; - Distance > 100 miles
-
-&#x20; - Total amount > $500
-
-\- Limitation: Thresholds identify potential anomalies; they do not prove the records are incorrect.
-
-
-
-\## 15. 95% Confidence Interval
-
-\- Formula: Difference ± 1.96 × standard error
-
-\- Grain: Comparison between two groups
-
-\- Limitation: Interpretation depends on statistical assumptions and the observational nature of the data.
-
+* **Formula:** Difference ± 1.96 × standard error
+* **Grain:** Comparison between two groups
+* **Limitation:** The interpretation depends on the statistical assumptions used and on the fact that this is observational data.
